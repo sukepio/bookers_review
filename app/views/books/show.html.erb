@@ -15,5 +15,26 @@
         </tr>
       </tbody>
     </table>
+    
+    <div class="comments">
+      <table class="table">
+        <tbody>
+          <% @book.book_comments.each do |book_comment| %>
+          <tr>
+            <td><%= book_comment.user.name %></td>
+            <td><%= book_comment.comment %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    
+    <div class="new_comment">
+      <%= form_with model:[@book, @book_comment], local: true do |f| %>
+        <%= f.text_area :comment, class:'form-control' %>
+        <%= f.submit '送信', class:'btn btn-info' %>
+      <% end %>
+    </div>
   </div>
 </div>
+
