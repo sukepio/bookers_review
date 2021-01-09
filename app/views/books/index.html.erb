@@ -4,6 +4,7 @@
 <table>
   <thead>
     <tr>
+      <th>User</th>
       <th>Title</th>
       <th>Content</th>
     </tr>
@@ -11,7 +12,8 @@
   <tbody>
     <% @books.each do |book| %>
     <tr>
-      <td><%= book.title %></td>
+      <td><%= book.user.name %></td>
+      <td><%= link_to book.title, book_path(book) %></td>
       <td><%= book.content %></td>
     </tr>
     <% end %>
