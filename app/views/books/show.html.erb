@@ -1,16 +1,19 @@
-<h1>Books#show</h1>
-<p>Find me in app/views/books/show.html.erb</p>
-
-<table>
-  <tbody>
-    <tr>
-      <td><%= @book.user.name %></td>
-      <td><%= @book.title %></td>
-      <td><%= @book.content %></td>
-      <% if current_user == @book.user %>
-      <td><%= link_to '編集する', edit_book_path(@book) %></td>
-      <td><%= link_to '削除する', book_path(@book), method: :delete %></td>
-      <% end %>
-    </tr>
-  </tbody>
-</table>
+<div class="container">
+  <div class="row">
+    <h1>Book</h1>
+    
+    <table class="table">
+      <tbody>
+        <tr>
+          <td><%= @book.user.name %></td>
+          <td><%= @book.title %></td>
+          <td><%= @book.content %></td>
+          <% if current_user == @book.user %>
+          <td><%= link_to '編集する', edit_book_path(@book), class:'btn btn-success' %></td>
+          <td><%= link_to '削除する', book_path(@book), method: :delete, class:'btn btn-danger' %></td>
+          <% end %>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
