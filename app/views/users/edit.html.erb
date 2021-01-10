@@ -6,6 +6,8 @@
         <%= form_with model:@user, local: true do |f| %>
           <h3>名前</h3>
           <%= f.text_field :name, autofocus: true, class:'form-control' %>
+          <h3>プロフィール画像</h3>
+          <%= f.attachment_field :profile_image, placeholder: 'プロフィール画像' %>
           <h3>自己紹介</h3>
           <%= f.text_area :introduction, class:'form-control' %>
           <%= f.submit '送信', class:'btn btn-info' %>
