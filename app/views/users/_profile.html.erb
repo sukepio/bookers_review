@@ -1,0 +1,13 @@
+<h1>プロフィール</h1>
+      <div class="card" style="width: 18rem;">
+        <%= attachment_image_tag user, :profile_image, :fill, 50, 50, format: 'jpeg', class:"bg-placeholder-img card-img-top" %>
+        <div class="card-body">
+          <div class="card-title"><%= user.name %></div>
+          <p class="card-text">
+            <%= user.introduction %>
+          </p>
+          <% if user == current_user %>
+          <%= link_to 'プロフィール編集', edit_user_path(user), class:'btn btn-info' %>
+          <% end %>
+        </div>
+      </div>

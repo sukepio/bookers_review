@@ -1,40 +1,11 @@
 
 <div class="container">
   <div class="row">
-    <h1>Books</h1>
-    <table class="table">
-      <thead class="thead-light">
-        <tr>
-          <th>User</th>
-          <th>Title</th>
-          <th>Content</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @books.each do |book| %>
-        <tr>
-          <td><%= book.user.name %></td>
-          <td><%= link_to book.title, book_path(book) %></td>
-          <td><%= book.content %></td>
-          <% if book.liked_by?(current_user) %>
-          <td>
-            <%= link_to book_likes_path(book), method: :delete, local: true do %>
-              <i class="fas fa-heart text-danger"></i>
-            <% end %>
-            <%= book.likes.count %>
-          </td>
-          <% else %>
-          <td>
-            <%= link_to book_likes_path(book), method: :post, local: true do %>
-              <i class="fas fa-heart"></i>
-            <% end %>
-            <%= book.likes.count %>
-          </td>
-          <% end %>
-        </tr>
-        <% end %>
-      </tbody>
-    </table>
-    
+    <div class="col-4">
+      <%= render 'users/profile', user: @user %>
+    </div>
+    <div class="col-8">
+      <%= render 'index', books: @books %>
+    </div>
   </div>
 </div>
