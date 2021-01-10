@@ -19,11 +19,11 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    @user.update(user_params)
-    redirect_to user_path(@user)
-  end
-
-  def destroy
+    if @user.update(user_params)
+      redirect_to user_path(@user), notice: 'You have updated your profile successfully!'
+    else
+      render 'edit'
+    end
   end
   
   def ensure_corrent_user

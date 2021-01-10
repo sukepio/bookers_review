@@ -8,6 +8,9 @@ class User < ApplicationRecord
   has_many :book_comments, dependent: :destroy
   has_many :likes, dependent: :destroy
   
+  validates :name, presence: true
+  validates :introduction, presence: true
+  
   attachment :profile_image
   
 end
