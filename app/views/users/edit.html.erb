@@ -1,2 +1,16 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<h1>プロフィール編集</h1>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="form">
+        <%= form_with model:@user, local: true do |f| %>
+          <h3>名前</h3>
+          <%= f.text_field :name, autofocus: true, class:'form-control' %>
+          <h3>自己紹介</h3>
+          <%= f.text_area :introduction, class:'form-control' %>
+          <%= f.submit '送信', class:'btn btn-info' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
