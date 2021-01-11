@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <% if @records.exists? %>
+        <% if @model == 'user' %>
+          <h2>Users search for "<%= @content %>"</h2>
+          <%= render 'users/index', users: @records %>
+        <% else %>
+          <h2>Books search for "<%= @content %>"</h2>
+          <%= render 'books/index', books: @records %>
+        <% end %>
+      <% else %>
+          <h2>"<%= @content %>"に該当する検索結果は見つかりませんでした。</h2>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -12,6 +12,9 @@
   <body>
     <%= render 'layouts/header' %>
     <p class="text-success"><%= notice %></p>
+    <% if user_signed_in? %>
+      <%= render 'layouts/search_form' %>
+    <% end %>
     <%= yield %>
   </body>
 </html>
