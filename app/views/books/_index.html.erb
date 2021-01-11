@@ -10,25 +10,13 @@
       </thead>
       <tbody>
         <% books.each do |book| %>
-        <tr>
+        <tr id="book_<%= book.id %>">
           <td><%= book.user.name %></td>
           <td><%= link_to book.title, book_path(book) %></td>
           <td><%= book.content %></td>
-          <% if book.liked_by?(current_user) %>
-          <td>
-            <%= link_to book_likes_path(book), method: :delete, local: true do %>
-              <i class="fas fa-heart text-danger"></i>
-            <% end %>
-            <%= book.likes.count %>
+          <td class="like-btn">
+            <%= render 'likes/like-btn', book: book %>
           </td>
-          <% else %>
-          <td>
-            <%= link_to book_likes_path(book), method: :post, local: true do %>
-              <i class="fas fa-heart"></i>
-            <% end %>
-            <%= book.likes.count %>
-          </td>
-          <% end %>
         </tr>
         <% end %>
       </tbody>
